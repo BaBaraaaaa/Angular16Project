@@ -1,0 +1,81 @@
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<a  class="heading-section">Male Fashion</a>
+				</div>
+			</div>
+			<div  class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url(assets/login-form-14/images/bg-1.jpg);">
+
+						</div>
+						<div class="login-wrap p-4 p-md-5">
+							<div class="d-flex">
+								<div class="w-100" style="display: flex; transform: translateY(10px);">
+									<h3 class="mb-4">Sign In</h3>
+								</div>
+								<div class="w-100 flex-icon">
+									<a href="#"
+										class="social-icon d-flex align-items-center justify-content-center"><span
+										class="fa fa-facebook"></span></a>
+                    <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/signin-google&response_type=code&client_id=540833837549-eof6l5jn50qm1r4j72i1cnorecik8rt0.apps.googleusercontent.com&approval_prompt=force"
+										class="social-icon d-flex align-items-center justify-content-center"><span
+										class="fa fa-google"></span></a>
+								</div>
+							</div>
+							<form [formGroup]="loginF"  (ngSubmit)="onSubmit()"  class="signin-form">
+								<div class="form-group mb-3">
+									<label class="label" for="name">Username</label> <input
+										name="userName" formControlName="userName" type="text" class="form-control"
+										placeholder="Username" required>
+
+								</div>
+								<div class="form-group mb-3">
+									<label class="label" for="password">Password</label> <input formControlName="password"
+										name="password" type="password" class="form-control"
+										placeholder="Password" required>
+								</div>
+								<div>
+									<p style="color: red;" ></p>
+								</div>
+
+								<div class="form-group">
+									<button type="submit"
+										class="form-control btn btn-primary rounded submit px-3" [disabled]="loginF.invalid">Sign
+										In</button>
+
+								</div>
+								<div class="form-group d-md-flex">
+									<div class="w-50 text-left">
+										<label class="checkbox-wrap checkbox-primary mb-0">Remember
+											Me <input name="remember" type="checkbox" checked> <span
+											class="checkmark"></span>
+										</label>
+									</div>
+									<div class="w-50 text-md-right">
+										<a >Forgot Password</a>
+									</div>
+								</div>
+							</form>
+							<p class="text-center">
+								Not a member? <a [routerLink]="['/register']">Sign Up</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div  class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img"
+							style="background-image: url(assets/login-form-14/images/bg-1.jpg);">
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

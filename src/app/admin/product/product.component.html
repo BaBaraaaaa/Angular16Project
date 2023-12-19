@@ -1,0 +1,72 @@
+	<!-- Content
+	================================================== -->
+
+
+    <!-- Titlebar -->
+    <div id="titlebar">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>My Products</h2>
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li>My Products</li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <!-- Listings -->
+      <div class="col-lg-12 col-md-12">
+        <div class="dashboard-list-box margin-top-0">
+          <h4>My Product</h4>
+          <ul>
+            <div *ngFor="let prod of products" prod of products>
+
+
+              <li>
+                <div class="list-box-listing">
+                  <div class="list-box-listing-img">
+                    <!-- <a href="#"><img th:src="${y.productImage[0].url_Image}"
+                      alt=""></a> -->
+
+                      <img mat-card-image [src]="prod.productImage[0].url_Image"
+                       alt="áo quần" (click)="showImages(prod)" >
+
+                  </div>
+                  <div class="list-box-listing-content">
+                    <div class="inner">
+                      <h3>
+                        <a href="#"  >{{prod.productName}}</a>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="buttons-to-right">
+                  <a  class="button gray" (click)="editProduct(prod.id)"><i
+                    class="sl sl-icon-note"  ></i> Edit</a>
+                    <a
+                    class="button gray" (click)="deleteProd(prod.id)" ><i class="sl sl-icon-close" ></i>
+                    Delete</a>
+
+
+
+                </div>
+              </li>
+
+            </div>
+          </ul>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+  <!-- Content / End -->

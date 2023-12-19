@@ -1,0 +1,76 @@
+
+
+  <!-- Header Section Begin -->
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-7">
+            <div class="header__top__left">
+              <p>Free shipping, 30-day return or refund guarantee.</p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-5">
+            <div class="header__top__right">
+              <div class="header__top__links">
+                  <ul class="header__top__hover">
+                    <li *ngIf="!isLoggedIn()">
+                      <a href="" [routerLink]="['/login']" >Login </a>
+                      <a href="" [routerLink]="['/register']" >Register </a>
+                    </li>
+                    <li *ngIf="isLoggedIn()" class="demo-section" >
+                          <a >Hi {{user.full_name || user.fullName}} </a>
+                          <a href="" (click)="onLogout()" >Logout </a>
+                          <a href=""  *ngIf="userService.roleMatch('Admin')" [routerLink]="['admin']">  Dashboard</a>
+                            <button color="Black"[routerLink]="['/cart']" mat-raised-button  >
+                               My cart
+                            </button>
+                            <button color="Black"[routerLink]="['/profile']" mat-raised-button  >
+                             My Profile
+                          </button>
+
+                    </li>
+
+                  </ul>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-3">
+          <div class="header__logo">
+            <a [routerLink]="['']"><img src="../assets/images/Gbeta.png" style="height: 100px,; width: 100px;" alt=""></a>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <nav class="header__menu mobile-menu">
+            <ul>
+              <li class="active"><a href="" (click)="onBackHome()">Home</a></li>
+              <li><a href="" [routerLink]="['shop']">Category</a></li>
+              <li><a [routerLink]="['about']">About</a>
+              <li><a [routerLink]="['contact']">Contacts</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-lg-3 col-md-3">
+          <div class="header__nav__option">
+            <a href="#" class="search-switch"><img
+                    src="assets/img/icon/search.png" alt=""></a>
+                    <a [routerLink]="['cart']" >
+                    <img src="assets/img/icon/cart.png" alt=""><span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="canvas__open">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+
+

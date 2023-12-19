@@ -1,0 +1,63 @@
+.example-card {
+  max-width: 400px;
+
+}
+
+.my-pagination ::ng-deep {
+  .ngx-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+  }
+  .ngx-pagination li {
+
+    width: 35px;
+    height: 35px;
+    border-radius: 50% !important;
+    background: #e7b5b5;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    &.small-screen{
+      display: none !important;
+    }
+    &.pagination-previous,
+    &.pagination-next{
+      a , span {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        color: #e7b5b5;
+      }
+      }
+    }
+  .ngx-pagination .pagination-previous a:before,
+  .ngx-pagination .pagination-previous.disabled:before,
+  .ngx-pagination .pagination-next.disabled:before,
+  .ngx-pagination .pagination-next a:before{
+    margin-right: 0px !important;
+    font-size: 26px;
+    margin-top: -3px;
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+}
+
+
+
+
+
+
+
+

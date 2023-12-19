@@ -1,0 +1,36 @@
+
+<section class="grid text-center spad">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-4" >
+      <div class="g-col-12" *ngFor="let item of products | paginate: { itemsPerPage: 4, currentPage: p }" >
+        <mat-card class="example-card"  >
+
+             <img mat-card-image [src]="item.productImage[0].url_Image"
+             style="width: 300px; height: 300px; max-width: 100%;"
+             (click)="showImages(item)">
+             <mat-card-subtitle >
+            <p>  {{item.productName}}</p>
+             </mat-card-subtitle>
+           <mat-card-content>
+             <p>
+               {{item.price}}  VNĐ
+             </p>
+           </mat-card-content>
+           <mat-card-actions>
+             <button   mat-button  *ngIf="!user" onclick="alert('Vui lòng đăng Nhập')" >Rate</button>
+            <button   mat-button  *ngIf="!user" onclick="alert('Vui lòng đăng Nhập')" >Add To Cart</button>
+            <button   mat-button *ngIf="user && !(user.role =='Admin')">Rate</button>
+            <button  mat-button *ngIf="user && !(user.role =='Admin')" (click)="onAddtoCart(item.id)"  >Add to Cart</button>
+           </mat-card-actions>
+         </mat-card>
+      </div>
+
+
+    </div>
+    <div class="mt-8 py-5 flex justify-center items-center">
+    <pagination-controls class="my-pagination" previousLabel=""  nextLabel="" (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>
+  </section>
+
+  <!-- Product Section End -->

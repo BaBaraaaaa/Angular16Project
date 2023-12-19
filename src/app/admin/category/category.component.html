@@ -1,0 +1,104 @@
+	<!-- Content
+	================================================== -->
+
+  <div class="dashboard-content">
+    <!-- <form action="dashboard-addproduct" method="post"  enctype="multipart/form-data"> -->
+
+      <!-- Titlebar -->
+      <div id="titlebar">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Category</h2>
+            <!-- Breadcrumbs -->
+            <nav id="breadcrumbs">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li>Category</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div id="add-listing">
+            <!-- Section -->
+            <div class="add-listing-section">
+              <!-- Headline -->
+              <div class="add-listing-headline">
+                <h3>
+                  <i class="sl sl-icon-doc"></i>  Category
+                </h3>
+              </div>
+              <!-- Title -->
+
+              <div class="row with-forms">
+
+                <div class="col-md-12">
+                  <h5>Add Category</h5>
+                  <label for="name">Name: </label>
+                  <input (input)="onInputChange($event)" type="text" id="category_Name" placeholder="Category Name" />
+
+                </div>
+
+                <button  class="btn btn-outline-success" type="submit" (click)="AddCate()">
+                  Add Category <i class="fa fa-arrow-circle-right"></i>
+                 </button>
+
+
+              </div>
+              <br>
+              <!-- Row -->
+              <div class="row with-forms"  >
+                <table class="table table-hover table-bordered table-borderless">
+                  <caption><h5>List Category</h5></caption>
+                  <thead>
+                    <tr >
+                      <th scope="col-md-4">
+                        <h5>STT</h5>
+                      <th scope="col-md-4"> <h5>Name</h5></th>
+                      <th scope="col-md-4"><h5>Thao Tác</h5></th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let cate of category">
+
+                      <tr  >
+                    <th scope="row"><h5>{{cate.id}}</h5></th>
+                        <td><h5>{{cate.name}}</h5></td>
+                        <td >
+                             <button type="submit" class="btn btn-outline-danger" (click)="XoaCate(cate.id)">
+                              <i class="sl sl-icon-close"></i> Delete</button>
+                        </td>
+                      </tr>
+
+                  </tbody>
+                </table>
+
+
+              </div>
+              <!-- Row / End -->
+            </div>
+
+
+          </div>
+        </div>
+
+        <div>
+
+
+
+        </div>
+
+
+        <!-- Copyrights -->
+        <div class="col-md-12">
+          <div class="copyrights"></div>
+        </div>
+
+      </div>
+
+  </div>
+  <!-- Content / End -->
+

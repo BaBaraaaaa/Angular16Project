@@ -1,0 +1,115 @@
+
+
+    <!-- Content
+================================================== -->
+
+      <!-- Titlebar -->
+      <div id="titlebar">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 th:text="${session.admin.user_Name + '!'}"></h2>
+            <!-- Breadcrumbs -->
+            <nav id="breadcrumbs">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li>Dashboard</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="row" style="justify-content: center; display: flex;">
+        <!-- Item -->
+        <div class="col-lg-3 col-md-6">
+          <div class="dashboard-stat color-1">
+            <div class="dashboard-stat-content">
+              <h4 th:text="${Total_Order}"></h4>
+              <span>Total Orders</span>
+            </div>
+            <div class="dashboard-stat-icon">
+              <i class="im im-icon-Add-Bag"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="col-lg-3 col-md-6">
+          <div class="dashboard-stat color-2">
+            <div class="dashboard-stat-content">
+              <h4 th:text="${Total_Product}"></h4>
+              <span>Total Products</span>
+            </div>
+            <div class="dashboard-stat-icon">
+              <i class="im im-icon-Polo-Shirt"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-lg-3 col-md-6">
+          <div class="dashboard-stat color-3">
+            <div class="dashboard-stat-content">
+              <h4 th:text="${Total_User}"></h4>
+              <span>Total Users</span>
+            </div>
+            <div class="dashboard-stat-icon">
+              <i class="im im-icon-Add-UserStar"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-lg-3 col-md-6">
+          <div class="dashboard-stat color-4">
+            <div class="dashboard-stat-content">
+              <h4 th:text="${Total_Category}"></h4>
+              <span>Total Categories</span>
+            </div>
+            <div class="dashboard-stat-icon">
+              <i class="im im-icon-Box-withFolders"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 70px;">
+        <!-- Recent Activity -->
+        <div class="col-lg-6 col-md-12">
+          <div class="dashboard-list-box with-icons margin-top-20">
+            <h4>Recent Customers</h4>
+            <ul>
+              <div th:each="y : ${recentCustomer}">
+                <li style="padding-left: 30px;"><img
+                  style="width: 45px; border-radius: 50%"
+                  th:src="${y.avatar}"
+                  alt=""><strong th:text="${y.user_Name}"></strong> <a th:text="'Email: ' + ${y.email}"></a></li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <!-- Invoices -->
+        <div class="col-lg-6 col-md-12">
+          <div class="dashboard-list-box invoices with-icons margin-top-20">
+            <h4>Recent Orders</h4>
+            <ul>
+              <div th:each="y : ${recentOrders}">
+                <li><i class="list-box-icon sl sl-icon-doc"></i> <strong th:text="${y.user.user_Name}"></strong>
+                  <ul>
+                    <li th:if="${y.payment_Method == 'Payment on delivery'}" class="unpaid">Payment on delivery</li>
+                    <li th:if="${y.payment_Method == 'Payment with momo'}" class="paid">Payment with momo</li>
+                    <li th:text="'Order: #' + ${y.id}">Order: </li>
+                    <li th:text="'Date: ' + ${#dates.format(y.booking_Date, 'dd/MM/yyyy')}"></li>
+                    <li th:text="'Price: ' + ${#numbers.formatDecimal(y.total, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"></li>
+                  </ul>
+                  <div class="buttons-to-right">
+                    <a th:href="@{/dashboard-invoice/{id}(id=${y.id})}" class="button gray">View
+                      Invoice</a>
+                  </div>
+                </li>
+              </div>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Content / End -->

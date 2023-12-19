@@ -1,0 +1,97 @@
+
+<!-- Shop Section Begin -->
+<section class="shop spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="shop__sidebar">
+          <div class="shop__sidebar__search">
+        <!-- search in here -->
+          </div>
+          <div class="shop__sidebar__accordion">
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-heading">
+                  <a data-toggle="collapse" data-target="#collapseOne" >Categories</a>
+                </div>
+                <div id="collapseOne" class="collapse show" data-parent="#accordionExample" >
+                  <div class="card-body">
+                    <div class="shop__sidebar__categories">
+                      <ul class="nice-scroll">
+                        <div *ngFor="let item of category">
+                          <li><a href="#" (click)="onClick(item.id)">{{item.name}}</a></li>
+                        </div>
+                        <li><a href="#" (click)="showitemincart = false">All Categories</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9" *ngIf="showitemincart">
+        <div class="shop__product__option">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="shop__product__option__left">
+                <div  *ngFor="let item of prodInCate"  >
+                  <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title >{{item.productName}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image [src]="item.productImage[0].url_Image"
+                    class="img-fluid img-thumbnail"  alt="áo quần">
+                    <mat-card-content>
+                      <p>
+                        {{item.price}}  VNĐ
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button >đánh giá</button>
+                      <button mat-button  *ngIf="!user" onclick="alert('Vui lòng đăng Nhập')" >Add to Cart</button>
+                      <button mat-button  *ngIf="user" (click)="onAddtoCart(item.id)" >Add to Cart</button>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9" *ngIf="!showitemincart">
+        <div class="shop__product__option">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="shop__product__option__left">
+                <div  *ngFor="let item of products"  >
+                  <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title >{{item.productName}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image [src]="item.productImage[0].url_Image"
+                    class="img-fluid img-thumbnail"  alt="áo quần">
+                    <mat-card-content>
+                      <p>
+                        {{item.price}}  VNĐ
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button >đánh giá</button>
+                      <button mat-button  *ngIf="!user" onclick="alert('Vui lòng đăng Nhập')" >Add to Cart</button>
+                      <button mat-button  *ngIf="user" (click)="onAddtoCart(item.id)" >Add to Cart</button>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Shop Section End -->

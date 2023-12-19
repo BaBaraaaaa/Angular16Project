@@ -1,0 +1,70 @@
+<div class="page-content">
+  <div class="form-v7-content">
+    <div class="form-left">
+      <img src="/assets/colorlib-regform-33/images/form-v7.jpg" alt="form">
+      <p class="text-1">Sign Up</p>
+      <p class="text-2">Privaci policy & Term of service</p>
+    </div>
+    <form  class="form-detail" id="myform" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <div class="form-row">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label> ProductName</mat-label>
+            <input matInput
+             name="user_name"
+              [(ngModel)]="user.user_name" placeholder=" User Name "
+             >
+          </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label> FULL NAME</mat-label>
+          <input matInput
+           name="full_name"
+            [(ngModel)]="user.full_name" placeholder=" Full Name "
+           >
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label> EMAIL </mat-label>
+            <input matInput
+             name="email"
+              [(ngModel)]="user.email" required
+              pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"   placeholder="Email..."
+             >
+          </mat-form-field>
+      </div>
+
+      <div class="form-row">
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label> PASSWORD</mat-label>
+            <input matInput type="password"
+             name="password"
+              [(ngModel)]="user.password" placeholder=" password " required
+             >
+          </mat-form-field>
+      </div>
+      <div class="form-row">
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label> CONFIRM PASSWORD</mat-label>
+            <input matInput type="password"
+             name="comfirm_password"
+               placeholder=" comfirm_password " required [(ngModel)]="comfirm_password">
+          </mat-form-field>
+
+      </div>
+
+      <div class="form-row-last ">
+
+          <button type="submit" mat-stroked-button color="primary">Register</button>
+      <p>Have Account
+        <a href="" [routerLink]="['/login']" value="login" >Sign In</a></p>
+
+
+      </div>
+    </form>
+  </div>
+</div>

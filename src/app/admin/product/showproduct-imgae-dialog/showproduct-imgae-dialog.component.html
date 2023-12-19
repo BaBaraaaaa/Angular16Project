@@ -1,0 +1,68 @@
+
+<div>
+
+    <table class="table">
+      <tbody>
+        <tr scope="row" >
+          <th  >
+            <div *ngFor="let item of listImage  | paginate: { itemsPerPage: 1, currentPage: p }">
+
+              <img [src]="item.url_Image" alt="" style="width: 300px;height: 300px;">
+            </div>
+            <div class="mt-8 py-5 flex justify-center items-center">
+              <pagination-controls class="my-pagination" previousLabel=""  nextLabel="" (pageChange)="p = $event"></pagination-controls>
+            </div>
+            </th>
+          <td>
+            <div class="card" style="width: 50rem; height: auto;">
+             <div class="card-body ">
+              <div >
+                <tr >
+                  <th>
+                    <mat-card>
+                      <mat-card-content style="border: 2px;">Product</mat-card-content>
+                      </mat-card>
+                  </th>
+                  <td>
+                    <mat-card-content  style="border: 2px;">  {{product.productName}}</mat-card-content>
+                  </td>
+
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <mat-card>
+                      <mat-card-content>Price</mat-card-content>
+                      </mat-card>
+                  </th>
+                  <td >
+                    <mat-card-content>  {{product.price}}</mat-card-content>
+                  </td>
+                </tr>
+                <tr>
+                  <mat-card>
+                    <mat-card-content>Description</mat-card-content>
+                    </mat-card>
+
+                  <td>
+                    <textarea   disabled readonly >{{product.description}}  </textarea>
+
+                  </td>
+                </tr>
+
+
+                <tr >
+                  <button  class="buttoncs button1"  *ngIf="!user" onclick="alert('Vui lòng đăng Nhập')" >Rate</button>
+                  <button  class="buttoncs button1" *ngIf="user && !(user.role =='Admin')">Rate</button>
+                  <button  class="buttoncs button1"  *ngIf="!user" onclick="alert('Vui lòng đăng Nhập')" >Add to Cart</button>
+                  <button  class="buttoncs button3" *ngIf="user && !(user.role =='Admin')" (click)="onAddtoCart(product.id)"  >Add to Cart</button>
+                </tr>
+              </div>
+
+             </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>

@@ -1,0 +1,79 @@
+
+	<!-- Shopping Cart Section Begin -->
+	<section class="shopping-cart spad">
+		<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="shopping__cart__table">
+							<table>
+								<thead>
+									<tr>
+										<th>Product</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr  >
+                      <div *ngFor=" let item of products" >
+											<td class="product__cart__item">
+												<div style="max-width: 90px; max-height: 90px;" class="product__cart__item__pic">
+                          <img mat-card-image [src]="item.productImage[0].url_Image">
+												</div>
+												<div class="product__cart__item__text">
+													<h6 [textContent]="item.productName"></h6>
+													<h5 [textContent]="item.price + ' VNĐ'"></h5>
+												</div>
+											</td>
+											<td class="quantity__item" >
+												<div class="quantity">
+													<div class="pro-qty-2">
+                            <input matInput type="number"  min="1" >
+                          </div>
+                          <br>
+												</div>
+											</td>
+											<td class="cart__price" [textContent]="item.price"></td>
+											<td class="cart__close">
+                        <a (click)="onDeleteProductInCart(item.id)" >
+                          <i class="fa fa-close"></i></a>
+                        </td>
+                        </div>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="continue__btn">
+									<a [routerLink]="['']">Continue Shopping</a>
+								</div>
+							</div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="continue__btn">
+									<a href="">Update Your Cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<!-- <div class="cart__discount">
+							<h6>Discount codes</h6>
+							<form action="#">
+							<input type="text" placeholder="Coupon code">
+							<button type="submit">Apply</button>
+							</form>
+						</div> -->
+						<div class="cart__total">
+							<h1>Cart total</h1>
+							<ul>
+								<li>Customer <span [textContent]="user.userName"></span></li>
+								<li>Total <span [textContent]="TongGia +' VNĐ'"></span></li>
+							</ul>
+							<a routerLink="/checkout" class="primary-btn">Proceed to
+								checkout</a>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</section>
+	<!-- Shopping Cart Section End -->

@@ -1,0 +1,34 @@
+<!-- Navigation
+	================================================== -->
+
+			<!-- Responsive Navigation Trigger -->
+
+
+			<div class="dashboard-nav">
+				<div class="dashboard-nav-inner">
+					<ul data-submenu-title="Main">
+						<li class="active"><a href="" [routerLink]="['dashboard']"><i
+								class="sl sl-icon-settings"></i> Dashboard</a></li>
+						<li><a [routerLink]="['order']"><i
+								class="fa fa-calendar-check-o" ></i> Orders</a></li>
+						<li><a [routerLink]="['manager-user']"><i
+								class="sl sl-icon-wallet"></i> Manager User</a></li>
+					</ul>
+
+					<ul data-submenu-title="Products">
+						<li><a [routerLink]="['products']"><i
+								class="sl sl-icon-layers"></i>Products</a></li>
+						<li><a [routerLink]="['category']"><i
+								class="sl sl-icon-plus"></i> Category</a></li>
+					</ul>
+
+					<ul data-submenu-title="Account">
+						<li><a  [routerLink]="['/profile']"><i
+								class="sl sl-icon-user"></i> My Profile</a></li>
+						<li><a  (click)="logout()"><i
+								class="sl sl-icon-power"></i> Logout</a></li>
+					</ul>
+
+				</div>
+			</div>
+			<!-- Navigation / End -->
