@@ -18,4 +18,5 @@ export class AdminServiceService {
   {
     return  this.http.put(`${api}/${id}`,body);
   }
+
 }

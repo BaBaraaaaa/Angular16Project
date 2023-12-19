@@ -30,7 +30,7 @@ export class CategoryService {
   }
     public getProductInCartByUser_id(user_id:any)
     {
-      return this.http.get(`${api}user/${user_id}`);
+      return this.http.get(`${api}/user/${user_id}`);
     }
     public GetProductByCategoryid(id: any){
       return this.http.get(`${api}/product/${id}`);
